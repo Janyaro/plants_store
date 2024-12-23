@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:plantsapp/ConstantText.dart';
 import 'package:plantsapp/Screens/Auth_Screens/login_screen.dart';
+import 'package:plantsapp/Screens/root_screen.dart';
 import 'package:plantsapp/Widgets/onboarding_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

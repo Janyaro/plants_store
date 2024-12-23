@@ -3,20 +3,19 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:plantsapp/ConstantText.dart';
-import 'package:plantsapp/Screens/Auth_Screens/forget_password.dart';
-import 'package:plantsapp/Screens/Auth_Screens/sign_out.dart';
+import 'package:plantsapp/Screens/Auth_Screens/login_screen.dart';
 import 'package:plantsapp/Screens/onboarding_screen.dart';
 import 'package:plantsapp/Screens/root_screen.dart';
 import 'package:plantsapp/Widgets/custom_field.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class createUser extends StatefulWidget {
+  const createUser({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<createUser> createState() => _createUserState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _createUserState extends State<createUser> {
   final emailController = TextEditingController();
   final passController = TextEditingController();
   @override
@@ -24,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final media = MediaQuery.of(context).size;
     return  Scaffold(
       appBar: AppBar(
-        title: Text('Sign In' ,style: TextStyle(fontSize: 25 , fontWeight: FontWeight.w500),),
+        title: Text('Sign Up' ,style: TextStyle(fontSize: 25 , fontWeight: FontWeight.w500),),
         
       ),
       body: SingleChildScrollView(
@@ -35,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               
-              Image.asset('assets/images/signin.png'),
+              Image.asset('assets/images/signup.png'),
               const SizedBox(height: 10,),
             CustomField( 
               controller: emailController,
@@ -53,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
            const SizedBox(height: 10,),
             InkWell(
               onTap: (){
-            Navigator.push(context, PageTransition(child:const RootScreen(), type: PageTransitionType.bottomToTop));
+            Navigator.push(context, PageTransition(child:const OnboardingScreen(), type: PageTransitionType.bottomToTop));
               },
               child: Container(
               width: media.width,
@@ -63,35 +62,12 @@ class _LoginScreenState extends State<LoginScreen> {
                    borderRadius: BorderRadius.circular(10)
                 ),
                 child:const Center(
-                  child: Text('Sign In' , style: TextStyle(color: Colors.white , fontSize: 18 ),),
+                  child: Text('Sign Out' , style: TextStyle(color: Colors.white , fontSize: 18 ),),
                 ),
               ),
             ),
            const SizedBox(height: 10,),
-            InkWell(
-              onTap: (){
-                Navigator.push(context, PageTransition(child:const forgetPassword(), type: PageTransitionType.bottomToTop));
-              },
-              child: Center(
-                child: Text.rich(
-                  TextSpan(
-                    children: [
-                      
-                     const TextSpan(
-                        text: 'Forget Password ! ',
-                        style: TextStyle(
-                           fontSize: 16
-                        )
-                        ),
-                        TextSpan(
-                          text: 'Reset Here',
-                          style: TextStyle(color: ConstantsItem.primaryColor , fontSize: 18)
-                        )
-                    ]
-                    )
-                ),
-              ),
-            ),
+            
            const SizedBox(height: 10,),
            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -123,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: 6,),
           InkWell(
             onTap: (){
-              Navigator.push(context, PageTransition(child:const createUser(), type: PageTransitionType.bottomToTop));
+              Navigator.push(context, PageTransition(child:const LoginScreen(), type: PageTransitionType.bottomToTop));
             },
             child: Center(
                 child: Text.rich(
@@ -131,13 +107,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       
                     const  TextSpan(
-                        text: 'New on Planty ',
+                        text: 'Have an Account ',
                         style: TextStyle(
                            fontSize: 16
                         )
                         ),
                         TextSpan(
-                          text: 'Register Here',
+                          text: 'Log In',
                           style: TextStyle(color: ConstantsItem.primaryColor , fontSize: 18)
                         )
                     ]
